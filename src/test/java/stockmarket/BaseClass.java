@@ -46,8 +46,18 @@ public class BaseClass {
 	
 	public static void chromeSetup() {
 		try {
-				System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
-				driver = new ChromeDriver();
+			
+				if(System.getProperty("os.name").toLowerCase().contains("mac")) {
+					System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
+					driver = new ChromeDriver();
+				} else if(System.getProperty("os.name").toLowerCase().contains("win")) {
+					System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
+					driver = new ChromeDriver();
+				} else if(System.getProperty("os.name").toLowerCase().contains("nux")) {
+					System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriverlinux");
+					driver = new ChromeDriver();
+				}
+				
 				driver.manage().window().maximize();
 				driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS) ;
 				
@@ -69,6 +79,7 @@ public class BaseClass {
 		  // TODO: handle exception
 		  System.err.println("Error while closing browser");
 		  e.printStackTrace();
+		  
 	  }
   }
 

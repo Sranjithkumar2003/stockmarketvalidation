@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [NIHTest]">
+  <test thread-count="5" name="AppleStock(failed)">
+    <parameter name="ticker" value="AAPL"/>
+    <parameter name="expectedTickerPrice" value="130"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://finance.yahoo.com"/>
+    <classes>
+      <class name="stockmarket.StockPrice">
+        <methods>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="afterClass"/>
+          <include name="validateTickerPrice" invocation-numbers="0"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- stockmarket.StockPrice -->
+    </classes>
+  </test> <!-- AppleStock(failed) -->
+</suite> <!-- Failed suite [NIHTest] -->

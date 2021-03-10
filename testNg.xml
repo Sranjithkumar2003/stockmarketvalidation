@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "NIHTest">
+   <test name = "AppleStock">
+   	  <parameter name="url" value="https://finance.yahoo.com" />
+   	  <parameter name="browser" value="chrome" />
+   	  <parameter name="ticker" value="AAPL" />
+   	  <parameter name="expectedTickerPrice" value="130" />
+      <classes>
+         <class name = "stockmarket.StockPrice">
+         	<include method="launchURl"/>
+         	<include method="searchForTicker"/>
+         	<include method="validateTickerPrice"/>
+         </class>
+      </classes>
+   </test>
+</suite>
